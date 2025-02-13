@@ -61,28 +61,34 @@
                         class="btn-close"
                         data-bs-dismiss="modal"
                         style="box-shadow: none !important"
+                        onclick="closeModal()"
                 ></button>
             </div>
             <div class="modal-body">
                 <div class="mb-3">
                     <label for="studentId" class="form-label fw-bold">Mã sinh viên</label>
-                    <input type="text" class="form-control" id="studentId" name="studentId" value="S000002" required />
+                    <input type="text" class="form-control" id="studentId" name="studentId" value="S000002" required/>
+                    <div class="invalid-feedback"></div>
                 </div>
                 <div class="mb-3">
                     <label for="name" class="form-label fw-bold">Họ tên</label>
                     <input type="text" class="form-control" id="name" name="name" value="Trần Thị Bích" required />
+                    <div class="invalid-feedback"></div>
                 </div>
                 <div class="mb-3">
                     <label for="age" class="form-label fw-bold">Tuổi</label>
                     <input type="number" class="form-control" id="age" name="age" value="22" required />
+                    <div class="invalid-feedback"></div>
                 </div>
                 <div class="mb-3">
                     <label for="phone" class="form-label fw-bold">Số điện thoại</label>
                     <input type="tel" class="form-control" id="phone" name="phone" value="0978543210" required />
+                    <div class="invalid-feedback"></div>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label fw-bold">Email</label>
                     <input type="email" class="form-control" id="email" name="email" value="bich.tran@example.com" required />
+                    <div class="invalid-feedback"></div>
                 </div>
             </div>
             <div class="modal-footer">
@@ -90,6 +96,7 @@
                         type="button"
                         class="btn btn-danger d-flex align-items-center"
                         data-bs-dismiss="modal"
+                        onclick="closeModal()"
                 >
                     <span class="material-symbols-outlined me-2">close</span> Đóng
                 </button>

@@ -34,8 +34,17 @@ function loadData() {
         .catch((error) => console.error('Error loading data', error));
 }
 
+
 function openModal(studentId = '', name = '', age = '', phone = '', email = '') {
     document.getElementById('studentId').value = studentId;
+    const studentIdInput = document.getElementById('studentId');
+
+    if (!studentIdInput.value.trim()) {
+        studentIdInput.disabled = false;
+    } else {
+        studentIdInput.disabled = true;
+    }
+
     document.getElementById('name').value = name;
     document.getElementById('age').value = age;
     document.getElementById('phone').value = phone;
@@ -44,21 +53,89 @@ function openModal(studentId = '', name = '', age = '', phone = '', email = '') 
     new bootstrap.Modal(document.getElementById('crudModal')).show();
 }
 
-function saveItem() {
-    const studentId = document.getElementById('studentId').value;
-    const name = document.getElementById('name').value;
-    const age = document.getElementById('age').value;
-    const phone = document.getElementById('phone').value;
-    const email = document.getElementById('email').value;
+function closeModal() {
+    const modalElement = document.getElementById('crudModal');
+    const studentIdInput = document.getElementById('studentId');
+    const nameInput = document.getElementById('name');
+    const ageInput = document.getElementById('age');
+    const phoneInput = document.getElementById('phone');
+    const emailInput = document.getElementById('email');
 
-    if (!studentId || !name || !age || !phone || !email) {
-        Swal.fire('Lỗi', 'Tất cả các trường đều bắt buộc', 'error');
-        return;
+    // Reset input fields
+    studentIdInput.value = '';
+    nameInput.value = '';
+    ageInput.value = '';
+    phoneInput.value = '';
+    emailInput.value = '';
+
+    // Remove validation styles and messages
+    [studentIdInput, nameInput, ageInput, phoneInput, emailInput].forEach(input => {
+        input.classList.remove('is-invalid');
+        input.nextElementSibling.textContent = '';
+    });
+}
+
+function saveItem() {
+    const studentIdInput = document.getElementById('studentId');
+    const nameInput = document.getElementById('name');
+    const ageInput = document.getElementById('age');
+    const phoneInput = document.getElementById('phone');
+    const emailInput = document.getElementById('email');
+
+    let isValid = true;
+
+    // Reset validation states
+    [studentIdInput, nameInput, ageInput, phoneInput, emailInput].forEach(input => {
+        input.classList.remove('is-invalid');
+        input.nextElementSibling.textContent = '';
+    });
+
+    // Validate Student ID
+    if (!studentIdInput.value.trim()) {
+        studentIdInput.classList.add('is-invalid');
+        studentIdInput.nextElementSibling.textContent = 'Mã sinh viên không được để trống.';
+        isValid = false;
     }
+
+    // Validate Name
+    if (!nameInput.value.trim()) {
+        nameInput.classList.add('is-invalid');
+        nameInput.nextElementSibling.textContent = 'Họ tên không được để trống.';
+        isValid = false;
+    }
+
+    // Validate Age
+    if (!ageInput.value.trim() || isNaN(ageInput.value) || ageInput.value < 1) {
+        ageInput.classList.add('is-invalid');
+        ageInput.nextElementSibling.textContent = 'Tuổi phải là số hợp lệ.';
+        isValid = false;
+    }
+
+    // Validate Phone
+    if (!phoneInput.value.trim() || !/^\d{10}$/.test(phoneInput.value)) {
+        phoneInput.classList.add('is-invalid');
+        phoneInput.nextElementSibling.textContent = 'Số điện thoại phải có 10 chữ số.';
+        isValid = false;
+    }
+
+    // Validate Email
+    if (!emailInput.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
+        emailInput.classList.add('is-invalid');
+        emailInput.nextElementSibling.textContent = 'Email không hợp lệ.';
+        isValid = false;
+    }
+
+    if (!isValid) return;
 
     const method = 'post';
     const url = API_URL;
-    const data = {studentId, name, age, phone, email};
+    const data = {
+        studentId: studentIdInput.value,
+        name: nameInput.value,
+        age: ageInput.value,
+        phone: phoneInput.value,
+        email: emailInput.value,
+    };
 
     axios[method](url, data)
         .then(() => {
