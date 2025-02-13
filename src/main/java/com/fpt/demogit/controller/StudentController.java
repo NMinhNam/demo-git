@@ -24,13 +24,8 @@ public class StudentController {
     }
 
     @PostMapping
-    public int addStudent(@RequestBody Student student) {
-        return studentService.addStudent(student);
-    }
-
-    @PutMapping
-    public int updateStudent(@RequestBody Student student) {
-        return studentService.addStudent(student);
+    public int saveStudent(@RequestBody Student student) {
+        return studentService.saveStudent(student);
     }
 
     @DeleteMapping("/{id}")

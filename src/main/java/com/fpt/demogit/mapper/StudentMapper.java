@@ -12,6 +12,7 @@ public interface StudentMapper {
     String insert = "INSERT INTO student (name, student_id, age, phone, email) VALUES (#{name}, #{studentId}, #{age}, #{phone}, #{email})";
     String update = "UPDATE student SET name = #{name} WHERE student_id = #{studentId}";
     String deleteByStudentId = "DELETE FROM student WHERE student_id = #{studentId}";
+    String isExistedStudent = "SELECT EXISTS( SELECT 1 FROM student WHERE student_id = #{studentId})";
 
     @Select(getAll)
     @Results(value = {
@@ -34,6 +35,9 @@ public interface StudentMapper {
             @Result(property = "email", column = "email")
     })
     List<Student> getByStudentId(String studentId);
+
+    @Select(isExistedStudent)
+    boolean isExistedStudent(String studentId);
 
     @Update(update)
     int update(Student student);

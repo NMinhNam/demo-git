@@ -9,9 +9,7 @@ public interface StudentService {
 
     List<Student> getByStudentId(String studentId);
 
-    int addStudent(Student student);
-
-    int updateStudent(Student student);
+    int saveStudent(Student student);
 
     int deleteStudent(String studentId);
 }

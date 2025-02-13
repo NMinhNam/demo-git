@@ -24,13 +24,13 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public int addStudent(Student student) {
+    public int saveStudent(Student student) {
+        String studentId = student.getStudentId();
+        boolean isExistedStudent = studentMapper.isExistedStudent(studentId);
+        if (isExistedStudent) {
+            return studentMapper.update(student);
+        }
         return studentMapper.insert(student);
-    }
-
-    @Override
-    public int updateStudent(Student student) {
-        return studentMapper.update(student);
     }
 
     @Override
