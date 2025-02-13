@@ -1,0 +1,197 @@
+* {
+    font-family: 'Manrope', sans-serif;
+}
+
+:root {
+    --primary-color: #16a34a;
+    --export-color: #0088cc;
+    --export-color-hover: #16a5ed;
+    --primary-color-hover: #2dac5c;
+    --secondary-color: #f4f4f5;
+    --secondary-color-hover: #ededed;
+    --btn-logout-bg: #fef2f2;
+    --btn-logout-color: #ef4444;
+    --btn-primary-color: #fff;
+    --border-input-color: #16a34a;
+    --border-main-color: #e4e4e7;
+    --table-hover: #f4f4f5;
+    --nav-link-color: #000;
+    --tw-ring-offset-shadow: 0 0 #0000;
+    --tw-ring-shadow: 0 0 #0000;
+    --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+}
+
+.btn,
+.box-shadow {
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
+    var(--tw-shadow);
+}
+
+.btn.btn-secondary,
+.box-shadow-sm,
+input,
+select,
+textarea {
+    --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
+    var(--tw-shadow);
+}
+
+button {
+    border-radius: calc(0.825rem - 1px) !important;
+}
+
+.btn.btn-primary,
+.btn.btn-secondary,
+.btn.btn-danger {
+    font-size: 0.875rem;
+    padding: 0.5rem 0.625rem;
+    border-radius: calc(0.825rem - 1px);
+    outline: none;
+    transition: all 0.2s ease !important;
+}
+
+.btn.btn-primary {
+    &:hover {
+        --tw-shadow: 0px 5px 5px rgba(0, 0, 0, 0.28), 0px 0px 0px 4px rgba(22, 163, 74, 0.25),
+        inset 0px 1px 2px rgba(255, 255, 255, 0.43), inset 0px -2px 2px rgba(0, 0, 0, 0.25);
+        --tw-shadow-colored: 0px 5px 5px var(--tw-shadow-color), 0px 0px 0px 4px var(--tw-shadow-color),
+        inset 0px 1px 2px var(--tw-shadow-color), inset 0px -2px 2px var(--tw-shadow-color);
+        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
+        var(--tw-shadow);
+    }
+}
+
+.btn.btn-danger {
+    &:hover {
+        --tw-shadow: 0px 5px 5px rgba(0, 0, 0, 0.28), 0px 0px 0px 4px rgba(220, 53, 69, 0.25),
+        inset 0px 1px 2px rgba(255, 255, 255, 0.43), inset 0px -2px 2px rgba(0, 0, 0, 0.25);
+        --tw-shadow-colored: 0px 5px 5px var(--tw-shadow-color), 0px 0px 0px 4px var(--tw-shadow-color),
+        inset 0px 1px 2px var(--tw-shadow-color), inset 0px -2px 2px var(--tw-shadow-color);
+        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
+        var(--tw-shadow);
+        &:hover {
+            border: 1px solid #dc3545 !important;
+            background-color: rgba(220, 53, 69, 1) !important;
+        }
+    }
+}
+
+.btn.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--btn-primary-color) !important;
+    border: none;
+    &:hover,
+    &:active {
+        border: none;
+        background-color: var(--primary-color-hover) !important;
+    }
+}
+
+.btn.btn-secondary {
+    border: 1.5px solid var(--border-main-color);
+    background-color: #fff;
+    color: var(--nav-link-color) !important;
+    &:hover,
+    &:active {
+        border: 1.5px solid var(--border-main-color) !important;
+        background-color: var(--secondary-color-hover) !important;
+    }
+}
+
+input,
+textarea,
+select {
+    height: 39.67px;
+    font-size: 0.875rem !important;
+    border-radius: calc(0.875rem - 1px) !important;
+    border: 1.5px solid var(--border-main-color) !important;
+    background-color: var(--secondary-color) !important;
+    color: var(--nav-link-color) !important;
+    transition: all 0.2s ease !important;
+    &:focus,
+    &:active {
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.04) !important;
+        border: 1.5px solid var(--border-input-color) !important;
+    }
+}
+
+.modal .modal-content {
+    border-radius: 1rem;
+    padding: 5px 10px;
+    background-color: var(--secondary-color);
+    color: var(--nav-link-color);
+}
+
+.swal2-popup {
+    font-family: 'Manrope', sans-serif;
+    border-radius: 1rem !important;
+    box-shadow: 0 1px 10px 0 rgba(12, 9, 9, 0.1), 0 2px 15px 0 rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    cursor: pointer;
+    background-color: var(--secondary-color) !important;
+    color: var(--nav-link-color);
+}
+
+.swal2-confirm,
+.swal2-cancel {
+    border-radius: calc(0.825rem - 1px) !important;
+    font-size: 0.875rem !important;
+    padding: 10px 16px !important;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
+    var(--tw-shadow);
+}
+
+.material-symbols-outlined {
+    font-size: 20px !important;
+}
+
+thead,
+tbody,
+tr,
+th,
+td {
+    background-color: var(--background-color) !important;
+    color: var(--nav-link-color) !important;
+    border-color: var(--border-main-color) !important;
+    white-space: nowrap;
+}
+
+tbody tr:hover td {
+    background: var(--table-hover) !important;
+}
+
+td {
+    vertical-align: middle;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+    &:hover {
+        background-color: #f9f9fa;
+    }
+}
+
+th {
+    background-color: var(--secondary-color) !important;
+    color: var(--tab-button-text) !important;
+    border: none !important;
+    padding: 12px 8px !important;
+    font-size: 14px !important;
+    cursor: pointer;
+    user-select: none !important;
+
+    &:hover {
+        background-color: var(--secondary-color-hover) !important;
+    }
+}
+
+th:first-child {
+    border-top-left-radius: 10px; /* Thay đổi giá trị 10px theo mong muốn */
+    border-bottom-left-radius: 10px;
+}
+
+th:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
