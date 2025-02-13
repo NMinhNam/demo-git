@@ -10,7 +10,7 @@ public interface StudentMapper {
     String getAll = "SELECT id, student_id, name, age, phone, email FROM student";
     String getByName = "SELECT id, student_id, name, age, phone, email FROM student WHERE student_id = #{studentId}";
     String insert = "INSERT INTO student (name, student_id, age, phone, email) VALUES (#{name}, #{studentId}, #{age}, #{phone}, #{email})";
-    String update = "UPDATE student SET name = #{name} WHERE student_id = #{studentId}";
+    String update = "UPDATE student SET name = #{name} AND age = #{age} AND phone = #{phone} AND email = #{email} WHERE student_id = #{studentId}";
     String deleteByStudentId = "DELETE FROM student WHERE student_id = #{studentId}";
     String isExistedStudent = "SELECT EXISTS( SELECT 1 FROM student WHERE student_id = #{studentId})";
 
