@@ -3,15 +3,15 @@ package com.fpt.demogit.service.impl;
 import com.fpt.demogit.entity.Student;
 import com.fpt.demogit.mapper.StudentMapper;
 import com.fpt.demogit.service.StudentService;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class StudentServiceImpl implements StudentService {
-    private final StudentMapper studentMapper;
+    @Autowired
+    StudentMapper studentMapper;
 
     @Override
     public List<Student> getAll() {
@@ -19,7 +19,22 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public List<Student> getByName(String name) {
-        return studentMapper.getByName(name);
+    public List<Student> getByStudentId(String getByStudentId) {
+        return studentMapper.getByStudentId(getByStudentId);
+    }
+
+    @Override
+    public int addStudent(Student student) {
+        return studentMapper.insert(student);
+    }
+
+    @Override
+    public int updateStudent(Student student) {
+        return studentMapper.update(student);
+    }
+
+    @Override
+    public int deleteStudent(String studentId) {
+        return studentMapper.delete(studentId);
     }
 }

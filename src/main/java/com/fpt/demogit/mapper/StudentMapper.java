@@ -7,12 +7,16 @@ import java.util.List;
 
 @Mapper
 public interface StudentMapper {
-    final String getAll = "SELECT * FROM student";
-    final String getByName = "SELECT * FROM student WHERE name = #{name}";
+    String getAll = "SELECT id, student_id, name, age, phone, email FROM student";
+    String getByName = "SELECT id, student_id, name, age, phone, email FROM student WHERE student_id = #{studentId}";
+    String insert = "INSERT INTO student (name, student_id, age, phone, email) VALUES (#{name}, #{studentId}, #{age}, #{phone}, #{email})";
+    String update = "UPDATE student SET name = #{name} WHERE student_id = #{studentId}";
+    String deleteByStudentId = "DELETE FROM student WHERE student_id = #{studentId}";
 
     @Select(getAll)
     @Results(value = {
             @Result(property = "id", column = "id"),
+            @Result(property = "studentId", column = "student_id"),
             @Result(property = "name", column = "name"),
             @Result(property = "age", column = "age"),
             @Result(property = "phone", column = "phone"),
@@ -23,10 +27,21 @@ public interface StudentMapper {
     @Select(getByName)
     @Results(value = {
             @Result(property = "id", column = "id"),
+            @Result(property = "studentId", column = "student_id"),
             @Result(property = "name", column = "name"),
             @Result(property = "age", column = "age"),
             @Result(property = "phone", column = "phone"),
             @Result(property = "email", column = "email")
     })
-    List<Student> getByName(String name);
+    List<Student> getByStudentId(String studentId);
+
+    @Update(update)
+    int update(Student student);
+
+    @Delete(deleteByStudentId)
+    int delete(String studentId);
+
+    @Insert(insert)
+    @Options(useGeneratedKeys = true, keyProperty = "id")
+    int insert(Student student);
 }
