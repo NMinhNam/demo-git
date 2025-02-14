@@ -28,7 +28,7 @@
 </head>
 <body>
 <div class="container mt-4">
-    <h2 class="mb-3" style="font-family: Bricolage Grotesque">User Management</h2>
+<!--    <h2 class="mb-3" style="font-family: Bricolage Grotesque">User Management</h2>-->
     <button class="btn btn-primary mb-3 d-flex align-items-center" onclick="openModal()">
         <span class="material-symbols-outlined me-2">add</span> Thêm mới
     </button>
@@ -36,13 +36,13 @@
         <table class="table">
             <thead>
             <tr>
-                <th>ID</th>
-                <th>Mã sinh viên</th>
-                <th>Họ tên</th>
-                <th>Tuổi</th>
-                <th>SDT</th>
-                <th>Email</th>
-                <th class="text-center">Hành động</th>
+                <th style="width: 30px">ID</th>
+                <th style="width: 100px">Mã sinh viên</th>
+                <th style="width: 130px">Họ tên</th>
+                <th style="width: 100px">Tuổi</th>
+                <th style="width: 100px">Điện thoại</th>
+                <th style="width: 100px">Email</th>
+                <th style="width: 100px" class="text-center">Hành động</th>
             </tr>
             </thead>
             <tbody id="dataTable">
@@ -55,7 +55,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalTitle">Thêm / Chỉnh sửa</h5>
+                <h5 class="modal-title fw-bold" id="modalTitle" style="color: var(--primary-color)">Thêm / Chỉnh sửa</h5>
                 <button
                         type="button"
                         class="btn-close"
