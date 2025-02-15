@@ -3,7 +3,8 @@
 }
 
 :root {
-    --primary-color: #16a34a;
+    /*--primary-color: #16a34a;*/
+    --primary-color: #d9d9d9;
     --export-color: #0088cc;
     --export-color-hover: #16a5ed;
     --primary-color-hover: #2dac5c;
